@@ -15,7 +15,7 @@ form = cgi.FieldStorage()
 print("Content-Type: text/html; charset=UTF-8")
 print("")
 
-if "message or name" not in form:
+if "message" not in form:
     print("<h1>テキストが空白です</h1>")
     print("<br>")
     print("テキストを入力してください！")

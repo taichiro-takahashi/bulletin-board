@@ -5,8 +5,6 @@
 ![Imgur](https://i.imgur.com/AYX9OuI.png)
 ## Install  
 ```
-sudo apt install openssh-server
-
 sudo apt install apache2
 
 sudo apt install mysql-server

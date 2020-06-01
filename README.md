@@ -17,4 +17,5 @@ sudo python3 -m pip install mysqlclient
 ```  
 ## Reference  
 [https://gray-code.com/php/make-the-board-vol1/](https://gray-code.com/php/make-the-board-vol1/
-)
+)  
+[https://qiita.com/mimitaro/items/3506a444f325c6f980b2](https://qiita.com/mimitaro/items/3506a444f325c6f980b2)

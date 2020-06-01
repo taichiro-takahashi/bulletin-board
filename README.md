@@ -1,7 +1,7 @@
 # bulletin-board  
 ## Activity content  
 * Python3.8.2, MySQL5.7の学習　　
-## DEMO  
+## Demo  
 ![Imgur](https://i.imgur.com/AYX9OuI.png)
 ## Install  
 ```

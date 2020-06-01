@@ -5,6 +5,7 @@ import cgitb; cgitb.enable()
 import cgi
 import datetime
 import MySQLdb
+import sys
 import configparser
 
 config_ini = configparser.ConfigParser()
@@ -14,11 +15,10 @@ read_default = config_ini['DEFAULT']
 user = read_default.get('User')
 
 read_default = config_ini['DEFAULT']
-pass = read_default.get('Password')
+password = read_default.get('Password')
 
 con = None
 cur = None
-
 
 print("Content-type: text/html; charset=utf-8")
 
@@ -34,7 +34,7 @@ print(
 
 <body>
 <h1>ひと言掲示板</h1>
-<form method="post" action="bbs.py">
+<form method="post" action="index.py">
         <div>
                 <label for="name">表示名</label>
                 <input id="name" type="text" name="name" value="">
@@ -55,7 +55,7 @@ def message():
     # 接続する
     con = MySQLdb.connect(
             user=user,
-            passwd=pass,
+            passwd=password,
             host='localhost',
             db='bbs_db',
             charset="utf8")
@@ -91,6 +91,48 @@ print(
 """
 </section>
 </body>
+</html>
+"""
+)
+
+form = cgi.FieldStorage()
+
+print("")
+
+if "message" not in form:
+    sys.exit()
+
+veiw_name = form.getvalue("name")
+veiw_text = form.getvalue("message")
+
+def bbs():
+    """ 接続サンプル """
+    # 接続する
+    con = MySQLdb.connect(
+            user=user,
+            passwd=password,
+            host='localhost',
+            db='bbs_db',
+            charset="utf8")
+    # カーソルを取得する
+    cur= con.cursor()
+    # クエリを実行する
+    sql = "INSERT INTO message_list (name, text) values (%s, %s)"
+    cur.execute(sql,(veiw_name, veiw_text))
+    con.commit()
+    cur.close()
+    con.close()
+
+if __name__ == "__main__":
+    bbs()
+
+print(
+"""
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0;URL=index.py">
+  </head>
 </html>
 """
 )

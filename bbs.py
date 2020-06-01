@@ -5,6 +5,16 @@ import cgi
 import cgitb
 import MySQLdb
 import sys
+import configparser
+
+config_ini = configparser.ConfigParser()
+config_ini.read('config.ini', encoding='utf-8')
+
+read_default = config_ini['DEFAULT']
+user = read_default.get('User')
+
+read_default = config_ini['DEFAULT']
+pass = read_default.get('Password')
 
 con = None
 cur = None
@@ -29,8 +39,8 @@ def bbs():
     """ 接続サンプル """
     # 接続する
     con = MySQLdb.connect(
-            user='id',
-            passwd='password',
+            user=user,
+            passwd=pass,
             host='localhost',
             db='bbs_db',
             charset="utf8")

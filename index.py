@@ -28,7 +28,7 @@ print(
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="./style.css">
 <title>ひと言掲示板</title>
 </head>
 
@@ -131,7 +131,7 @@ print(
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="0;URL=index.py">
+    <meta http-equiv="refresh" content="0;URL="./">
   </head>
 </html>
 """
